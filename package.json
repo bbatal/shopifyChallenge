@@ -1,0 +1,23 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbatal/shopifyChallenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbatal/shopifyChallenge/issues"
+  },
+  "homepage": "https://github.com/bbatal/shopifyChallenge#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "sass": "^1.51.0"
+  }
+}
