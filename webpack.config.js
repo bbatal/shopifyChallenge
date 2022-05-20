@@ -13,11 +13,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist') 
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "process.env": {
-        API_KEY: JSON.stringify(process.env.API_KEY)
-      }
-    }),
+      new Dotenv()
     // new Dotenv()
   ],
   resolve: {

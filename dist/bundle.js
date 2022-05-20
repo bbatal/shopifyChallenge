@@ -5957,7 +5957,7 @@ class WebSocketConnection {
                     options.headers['X-Firebase-AppCheck'] = this.appCheckToken;
                 }
                 // Plumb appropriate http_proxy environment variable into faye-websocket if it exists.
-                const env = ({"API_KEY":undefined});
+                const env = "MISSING_ENV_VAR";
                 const proxy = this.connURL.indexOf('wss://') === 0
                     ? env['HTTPS_PROXY'] || env['https_proxy']
                     : env['HTTP_PROXY'] || env['http_proxy'];
@@ -17627,8 +17627,8 @@ function repoManagerDatabaseFromApp(app, authProvider, appCheckProvider, url, no
     let repoInfo = parsedUrl.repoInfo;
     let isEmulator;
     let dbEmulatorHost = undefined;
-    if (typeof process !== 'undefined' && ({"API_KEY":undefined})) {
-        dbEmulatorHost = ({"API_KEY":undefined})[FIREBASE_DATABASE_EMULATOR_HOST_VAR];
+    if (typeof process !== 'undefined' && "MISSING_ENV_VAR") {
+        dbEmulatorHost = "MISSING_ENV_VAR"[FIREBASE_DATABASE_EMULATOR_HOST_VAR];
     }
     if (dbEmulatorHost) {
         isEmulator = true;
@@ -18156,7 +18156,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firebaseApp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 // API secret key for openAI
-const API_KEY = undefined;
+const TOKEN = "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";
+
 
 
 
@@ -18184,14 +18185,14 @@ const fetchCall = () => {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
-       Authorization: `Bearer ${API_KEY}`,
+       Authorization: `Bearer ${TOKEN}`,
      },
      body: JSON.stringify(app.data),
     })
     .then((res) => {
         return res.json()
     }).then((data) => {
-        // console.log(data.choices)
+        console.log(data.choices)
         app.renderElements(data.choices);
 
         // add both the data and the original prompt
