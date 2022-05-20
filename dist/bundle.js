@@ -9,19 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const TOKEN = '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';
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TOKEN);
-
-/***/ }),
-/* 2 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 // import the functions you need from the SDKs you need
 
 
@@ -53,7 +41,7 @@ const firebaseApp = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (firebaseApp);
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -77,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "registerVersion": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion),
 /* harmony export */   "setLogLevel": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.setLogLevel)
 /* harmony export */ });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 
 
 
@@ -105,7 +93,7 @@ var version = "9.8.1";
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -129,10 +117,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "registerVersion": () => (/* binding */ registerVersion),
 /* harmony export */   "setLogLevel": () => (/* binding */ setLogLevel)
 /* harmony export */ });
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 
 
 
@@ -1048,7 +1036,7 @@ registerCoreComponents('');
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1057,7 +1045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ComponentContainer": () => (/* binding */ ComponentContainer),
 /* harmony export */   "Provider": () => (/* binding */ Provider)
 /* harmony export */ });
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 
 
 /**
@@ -1470,7 +1458,7 @@ class ComponentContainer {
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3436,7 +3424,7 @@ function getModularInstance(service) {
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3668,7 +3656,7 @@ function setUserLogHandler(logCallback, options) {
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3678,7 +3666,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "unwrap": () => (/* reexport safe */ _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_0__.u),
 /* harmony export */   "wrap": () => (/* reexport safe */ _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_0__.w)
 /* harmony export */ });
-/* harmony import */ var _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
 
 
@@ -3770,7 +3758,7 @@ function getMethod(target, prop) {
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3969,7 +3957,7 @@ const unwrap = (value) => reverseTransformCache.get(value);
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4028,13 +4016,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "startAt": () => (/* reexport safe */ _firebase_database__WEBPACK_IMPORTED_MODULE_0__.startAt),
 /* harmony export */   "update": () => (/* reexport safe */ _firebase_database__WEBPACK_IMPORTED_MODULE_0__.update)
 /* harmony export */ });
-/* harmony import */ var _firebase_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var _firebase_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 
 //# sourceMappingURL=index.esm.js.map
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4093,10 +4081,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "startAt": () => (/* binding */ startAt),
 /* harmony export */   "update": () => (/* binding */ update)
 /* harmony export */ });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 
 
 
@@ -5969,7 +5957,7 @@ class WebSocketConnection {
                     options.headers['X-Firebase-AppCheck'] = this.appCheckToken;
                 }
                 // Plumb appropriate http_proxy environment variable into faye-websocket if it exists.
-                const env = process['env'];
+                const env = ({"API_KEY":undefined});
                 const proxy = this.connURL.indexOf('wss://') === 0
                     ? env['HTTPS_PROXY'] || env['https_proxy']
                     : env['HTTP_PROXY'] || env['http_proxy'];
@@ -17639,8 +17627,8 @@ function repoManagerDatabaseFromApp(app, authProvider, appCheckProvider, url, no
     let repoInfo = parsedUrl.repoInfo;
     let isEmulator;
     let dbEmulatorHost = undefined;
-    if (typeof process !== 'undefined' && process.env) {
-        dbEmulatorHost = process.env[FIREBASE_DATABASE_EMULATOR_HOST_VAR];
+    if (typeof process !== 'undefined' && ({"API_KEY":undefined})) {
+        dbEmulatorHost = ({"API_KEY":undefined})[FIREBASE_DATABASE_EMULATOR_HOST_VAR];
     }
     if (dbEmulatorHost) {
         isEmulator = true;
@@ -18165,10 +18153,10 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _environment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _firebaseApp_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var _firebaseApp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 // API secret key for openAI
+const API_KEY = undefined;
 
 
 
@@ -18179,8 +18167,8 @@ const app = {};
 app.form = document.getElementById('form');
 app.input = document.getElementById('prompt');
 app.uLList = document.getElementById('responses');
-app.database = (0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.getDatabase)(_firebaseApp_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
-app.dbRootAddress = (0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.ref)(app.database);
+app.database = (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.getDatabase)(_firebaseApp_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+app.dbRootAddress = (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database);
 app.savedItems = [];
 app.data = {
  prompt: "Write a poem about a dog wearing skis",
@@ -18196,7 +18184,7 @@ const fetchCall = () => {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
-       Authorization: `Bearer ${_environment_js__WEBPACK_IMPORTED_MODULE_0__["default"]}`,
+       Authorization: `Bearer ${API_KEY}`,
      },
      body: JSON.stringify(app.data),
     })
@@ -18237,7 +18225,7 @@ app.renderElements = (fetchResponse) => {
 // load firebase data
 app.firebaseGetter = () => {
     // use onValue to watch for changes
-    ;(0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.onValue)(app.dbRootAddress, (response) => {
+    ;(0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.onValue)(app.dbRootAddress, (response) => {
 
         const data = response.val();
 
@@ -18259,9 +18247,9 @@ app.handleAddItem = (textData, userPrompt) => {
 
 
     // generate a new key in your database
-    const newPostKey = (0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.push)((0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.child)((0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.ref)(app.database), `answers`)).key;
+    const newPostKey = (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.push)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.child)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database), `answers`)).key;
 
-    (0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.set)((0,firebase_database__WEBPACK_IMPORTED_MODULE_2__.ref)(app.database, `answers/${newPostKey}`), fireObj);
+    (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.set)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database, `answers/${newPostKey}`), fireObj);
 }
 
 // call for the intitialization of our app

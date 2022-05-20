@@ -19,11 +19,15 @@
   },
   "homepage": "https://github.com/bbatal/shopifyChallenge#readme",
   "dependencies": {
+    "browserify": "^17.0.0",
     "dotenv": "^16.0.1",
     "firebase": "^9.8.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "sass": "^1.51.0"
   },
   "devDependencies": {
+    "dotenv-webpack": "^7.1.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"

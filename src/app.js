@@ -1,5 +1,6 @@
 // API secret key for openAI
-import TOKEN from "../environment.js";
+const API_KEY = process.env.API_KEY;
+
 import firebaseApp from "../firebaseApp.js";
 import { getDatabase, ref, set, onValue, push, child,  } from 'firebase/database';
 
@@ -26,7 +27,7 @@ const fetchCall = () => {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
-       Authorization: `Bearer ${TOKEN}`,
+       Authorization: `Bearer ${API_KEY}`,
      },
      body: JSON.stringify(app.data),
     })
