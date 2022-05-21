@@ -18156,7 +18156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firebaseApp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 // API secret key for openAI
-const TOKEN = "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";
+const API_KEY = "MISSING_ENV_VAR".sample.API_KEY;
 
 
 
@@ -18185,31 +18185,31 @@ const fetchCall = () => {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
-       Authorization: `Bearer ${TOKEN}`,
+       Authorization: `Bearer ${API_KEY}`,
      },
      body: JSON.stringify(app.data),
     })
     .then((res) => {
         return res.json()
     }).then((data) => {
-        console.log(data.choices)
-        app.renderElements(data.choices);
-
         // add both the data and the original prompt
         app.handleAddItem(data.choices[0].text, app.data.prompt)
     })
 }
 
 // lets return the prompt and the markup onto the page from our call
-app.renderElements = (fetchResponse) => {
+app.renderElements = (fetchResponse, prompt, firebaseItemKey) => {
     // create our local variables
     const li = document.createElement('li');
     const div = document.createElement('div');
     const h2 = document.createElement('h2');
     const p = document.createElement('p');
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'X';
+    removeButton.addEventListener('click', () => {app.handleRemoveItem(firebaseItemKey)});
 
     // append prompt to h2
-    h2.textContent = app.data.prompt;
+    h2.textContent = prompt;
 
     // append returned data to paragraph
     p.textContent = fetchResponse;
@@ -18217,6 +18217,7 @@ app.renderElements = (fetchResponse) => {
     // append all data to div
     div.append(h2);
     div.append(p)
+    div.append(removeButton)
 
     // append div to li
     li.append(div);
@@ -18225,17 +18226,25 @@ app.renderElements = (fetchResponse) => {
 
 // load firebase data
 app.firebaseGetter = () => {
+
     // use onValue to watch for changes
     ;(0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.onValue)(app.dbRootAddress, (response) => {
 
+         // remove li's from ul to clear it before appending more data
+        while( app.uLList.firstChild ) {
+            app.uLList.removeChild( app.uLList.firstChild )
+        }
+
         const data = response.val();
 
-        for (let key in data) {
-            // fill the array with { key: prompt, response: "responseBody"} type objects
-            app.renderElements(data[data])
-         }
+        if (data) {
+            for (let key in data['answers']) {
+                // we need to change the app.data.prompt variable on every call of renderElements on page load
+                app.renderElements(data['answers'][key].data, data['answers'][key].prompt, key)
+    
+             }
 
-      console.log(app.savedItems);
+        }
     })
 }
 
@@ -18246,11 +18255,17 @@ app.handleAddItem = (textData, userPrompt) => {
         prompt: userPrompt,
     }
 
-
     // generate a new key in your database
     const newPostKey = (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.push)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.child)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database), `answers`)).key;
 
+    // save generated object to the database position
     (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.set)((0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database, `answers/${newPostKey}`), fireObj);
+}
+
+// removing items from firebase
+app.handleRemoveItem = (key) => {
+    const itemLocation = (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.ref)(app.database, `answers/${key}/`);
+    (0,firebase_database__WEBPACK_IMPORTED_MODULE_1__.remove)(itemLocation);
 }
 
 // call for the intitialization of our app
@@ -18266,7 +18281,7 @@ app.init = function() {
         app.input.value = "";
 
         // call the api with our new data request
-        fetchCall(app.data);
+        fetchCall();
 
     })
 }

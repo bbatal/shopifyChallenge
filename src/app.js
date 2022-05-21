@@ -1,9 +1,9 @@
 // API secret key for openAI
-const TOKEN = process.env.API_KEY;
+const API_KEY = process.env.sample.API_KEY;
 
 
 import firebaseApp from "../firebaseApp.js";
-import { getDatabase, ref, set, onValue, push, child,  } from 'firebase/database';
+import { getDatabase, ref, set, onValue, push, child, remove,  } from 'firebase/database';
 
 const app = {};
 
@@ -28,31 +28,31 @@ const fetchCall = () => {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
-       Authorization: `Bearer ${TOKEN}`,
+       Authorization: `Bearer ${API_KEY}`,
      },
      body: JSON.stringify(app.data),
     })
     .then((res) => {
         return res.json()
     }).then((data) => {
-        console.log(data.choices)
-        app.renderElements(data.choices);
-
         // add both the data and the original prompt
         app.handleAddItem(data.choices[0].text, app.data.prompt)
     })
 }
 
 // lets return the prompt and the markup onto the page from our call
-app.renderElements = (fetchResponse) => {
+app.renderElements = (fetchResponse, prompt, firebaseItemKey) => {
     // create our local variables
     const li = document.createElement('li');
     const div = document.createElement('div');
     const h2 = document.createElement('h2');
     const p = document.createElement('p');
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'X';
+    removeButton.addEventListener('click', () => {app.handleRemoveItem(firebaseItemKey)});
 
     // append prompt to h2
-    h2.textContent = app.data.prompt;
+    h2.textContent = prompt;
 
     // append returned data to paragraph
     p.textContent = fetchResponse;
@@ -60,6 +60,7 @@ app.renderElements = (fetchResponse) => {
     // append all data to div
     div.append(h2);
     div.append(p)
+    div.append(removeButton)
 
     // append div to li
     li.append(div);
@@ -68,17 +69,25 @@ app.renderElements = (fetchResponse) => {
 
 // load firebase data
 app.firebaseGetter = () => {
+
     // use onValue to watch for changes
     onValue(app.dbRootAddress, (response) => {
 
+         // remove li's from ul to clear it before appending more data
+        while( app.uLList.firstChild ) {
+            app.uLList.removeChild( app.uLList.firstChild )
+        }
+
         const data = response.val();
 
-        for (let key in data) {
-            // fill the array with { key: prompt, response: "responseBody"} type objects
-            app.renderElements(data[data])
-         }
+        if (data) {
+            for (let key in data['answers']) {
+                // we need to change the app.data.prompt variable on every call of renderElements on page load
+                app.renderElements(data['answers'][key].data, data['answers'][key].prompt, key)
+    
+             }
 
-      console.log(app.savedItems);
+        }
     })
 }
 
@@ -89,11 +98,17 @@ app.handleAddItem = (textData, userPrompt) => {
         prompt: userPrompt,
     }
 
-
     // generate a new key in your database
     const newPostKey = push(child(ref(app.database), `answers`)).key;
 
+    // save generated object to the database position
     set(ref(app.database, `answers/${newPostKey}`), fireObj);
+}
+
+// removing items from firebase
+app.handleRemoveItem = (key) => {
+    const itemLocation = ref(app.database, `answers/${key}/`);
+    remove(itemLocation);
 }
 
 // call for the intitialization of our app
@@ -109,7 +124,7 @@ app.init = function() {
         app.input.value = "";
 
         // call the api with our new data request
-        fetchCall(app.data);
+        fetchCall();
 
     })
 }

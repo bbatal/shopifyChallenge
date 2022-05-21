@@ -24,7 +24,8 @@
     "firebase": "^9.8.1",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "dotenv-webpack": "^7.1.0",
