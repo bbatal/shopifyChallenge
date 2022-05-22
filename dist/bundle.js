@@ -14,7 +14,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
