@@ -1,5 +1,5 @@
 // API secret key for openAI
-const API_KEY = process.env.sample.API_KEY;
+const API_KEY = process.env.API_KEY;
 
 
 import firebaseApp from "../firebaseApp.js";
