@@ -129,7 +129,7 @@ app.init = function() {
     })
 }
 
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function() {
 
     app.init();
     app.firebaseGetter();
