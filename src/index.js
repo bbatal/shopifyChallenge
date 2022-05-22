@@ -36,7 +36,9 @@ const fetchCall = () => {
         return res.json()
     }).then((data) => {
         // add both the data and the original prompt
-        app.handleAddItem(data.choices[0].text, app.data.prompt)
+        if(data.choices) {
+            app.handleAddItem(data.choices[0].text, app.data.prompt)
+        }
     })
 }
 
